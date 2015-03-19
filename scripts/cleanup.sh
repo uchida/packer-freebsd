@@ -1,5 +1,7 @@
 #!/bin/sh
 set -ex
+pkg autoremove -y
+pkg clean -y
 rm -rf /var/db/freebsd-update/files
 mkdir /var/db/freebsd-update/files
 rm -f /var/db/freebsd-update/*-rollback
