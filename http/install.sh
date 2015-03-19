@@ -22,10 +22,8 @@ bsdinstall entropy
 echo "packer" | pw -V $BSDINSTALL_CHROOT/etc usermod root -h 0
 echo "PermitRootLogin yes" >> $BSDINSTALL_CHROOT/etc/ssh/sshd_config
 
+chroot $BSDINSTALL_CHROOT sysrc sshd_enable="YES"
 interface="`ifconfig -l | cut -d' ' -f1`"
-cat <<EOT >> $BSDINSTALL_CHROOT/etc/rc.conf
-sshd_enable="YES"
-ifconfig_$interface=dhcp 
-EOT
+chroot $BSDINSTALL_CHROOT sysrc ifconfig_$interface="dhcp"
 
 shutdown -r now
