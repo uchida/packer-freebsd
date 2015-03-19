@@ -120,7 +120,10 @@
     },
     {
       "type": "shell",
-      "script": "scripts/cleanup.sh",
+      "scripts": [
+        "scripts/cleanup.sh",
+        "scripts/zerodisk.sh"
+      ],
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'"
     }
   ],
