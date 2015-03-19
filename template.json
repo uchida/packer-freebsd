@@ -108,15 +108,9 @@
     },
     {
       "type": "shell",
-      "script": "scripts/virtualbox.sh",
+      "script": "scripts/vmguest.sh",
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'",
-      "only": ["virtualbox-iso"]
-    },
-    {
-      "type": "shell",
-      "script": "scripts/vmware.sh",
-      "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'",
-      "only": ["vmware-iso"]
+      "only": ["virtualbox-iso", "vmware-iso"]
     },
     {
       "type": "shell",
