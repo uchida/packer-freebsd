@@ -58,7 +58,6 @@
 
       "type": "vmware-iso",
       "guest_os_type": "freebsd-64",
-      "tools_upload_flavor": "freebsd",
       "vmx_data": {
         "memsize": "2048"
       }
