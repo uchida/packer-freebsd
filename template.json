@@ -88,12 +88,9 @@
       "headless": true,
 
       "type": "qemu",
-      "accelerator": "kvm",
-      "format": "qcow2",
       "qemuargs": [
         [ "-m", "2048M" ]
-      ],
-      "qemu_binary": "/usr/libexec/qemu-kvm"
+      ]
     }
   ],
   "provisioners": [
