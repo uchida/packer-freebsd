@@ -14,6 +14,7 @@
         "mdmfs -s 100m md2 /mnt<enter><wait>",
         "dhclient -l /tmp/dhclient.lease.em0 em0<enter><wait5>",
         "fetch -o /tmp/installerconfig http://{{ .HTTPIP }}:{{ .HTTPPort }}/installerconfig<enter><wait>",
+        "fetch -q -o - http://{{ .HTTPIP }}:{{ .HTTPPort }}/zfsboot-fix.sh | sh <enter><wait5>",
         "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>"
       ],
       "boot_wait": "5s",
