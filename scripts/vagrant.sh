@@ -1,6 +1,6 @@
 #!/bin/sh
 set -ex
-echo "vagrant" | pw -V /etc useradd vagrant -h 0 -s /bin/sh -G wheel -c "vagrant"
+echo "vagrant" | pw useradd vagrant -h 0 -s /bin/sh -G wheel -c "vagrant"
 pkg install -y sudo
 echo "vagrant ALL=(ALL) NOPASSWD: ALL" > /usr/local/etc/sudoers.d/vagrant
 chmod 0440 /usr/local/etc/sudoers.d/vagrant
