@@ -22,4 +22,4 @@ $ packer build -only=qemu template.json
 
 When building qemu images, note that the driver names,
 controlled by `qemuargs`, are consistent with one in
-a template.json or an install script.
+`boot_command` or http/installerconfig.

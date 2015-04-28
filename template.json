@@ -13,7 +13,8 @@
         "mdmfs -s 100m md1 /tmp<enter><wait>",
         "mdmfs -s 100m md2 /mnt<enter><wait>",
         "dhclient -l /tmp/dhclient.lease.em0 em0<enter><wait5>",
-        "fetch -q -o - http://{{ .HTTPIP }}:{{ .HTTPPort }}/install.sh | sh<enter><wait>"
+        "fetch -o /tmp/installerconfig http://{{ .HTTPIP }}:{{ .HTTPPort }}/installerconfig<enter><wait>",
+        "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>"
       ],
       "boot_wait": "5s",
       "disk_size": 40960,
@@ -44,7 +45,8 @@
         "mdmfs -s 100m md1 /tmp<enter><wait>",
         "mdmfs -s 100m md2 /mnt<enter><wait>",
         "dhclient -l /tmp/dhclient.lease.em0 em0<enter><wait5>",
-        "fetch -q -o - http://{{ .HTTPIP }}:{{ .HTTPPort }}/install.sh | sh<enter><wait>"
+        "fetch -o /tmp/installerconfig http://{{ .HTTPIP }}:{{ .HTTPPort }}/installerconfig<enter><wait>",
+        "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>"
       ],
       "boot_wait": "5s",
       "disk_size": 40960,
@@ -75,7 +77,8 @@
         "mdmfs -s 100m md1 /tmp<enter><wait>",
         "mdmfs -s 100m md2 /mnt<enter><wait>",
         "dhclient -l /tmp/dhclient.lease.vtnet0 vtnet0<enter><wait5>",
-        "fetch -q -o - http://{{ .HTTPIP }}:{{ .HTTPPort }}/install.sh | sh<enter><wait>"
+        "fetch -o /tmp/installerconfig http://{{ .HTTPIP }}:{{ .HTTPPort }}/installerconfig<enter><wait>",
+        "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>"
       ],
       "boot_wait": "5s",
       "disk_size": 40960,
