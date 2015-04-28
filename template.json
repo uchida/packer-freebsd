@@ -27,10 +27,7 @@
       "headless": true,
 
       "type": "virtualbox-iso",
-      "guest_os_type": "FreeBSD_64",
-      "vboxmanage": [
-        [ "modifyvm", "{{ .Name }}", "--memory", "2048" ]
-      ]
+      "guest_os_type": "FreeBSD_64"
     },
     {
       "vm_name": "freebsd-10.1",
@@ -59,10 +56,7 @@
       "headless": true,
 
       "type": "vmware-iso",
-      "guest_os_type": "freebsd-64",
-      "vmx_data": {
-        "memsize": "2048"
-      }
+      "guest_os_type": "freebsd-64"
     },
     {
       "vm_name": "freebsd-10.1",
@@ -90,10 +84,7 @@
       "shutdown_command": "shutdown -p now",
       "headless": true,
 
-      "type": "qemu",
-      "qemuargs": [
-        [ "-m", "2048M" ]
-      ]
+      "type": "qemu"
     }
   ],
   "provisioners": [
