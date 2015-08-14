@@ -7,13 +7,13 @@
       "boot_prefetch": "<esc><wait>boot -s<enter><wait><wait10><wait5>/bin/sh<enter><wait>mdmfs -s 100m md1 /tmp<enter><wait>mdmfs -s 100m md2 /mnt<enter><wait>dhclient -p /tmp/dhclient.pid -l /tmp/dhclient.lease em0<enter><wait5>",
       "boot_postfetch": "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>",
       "boot_wait": "5s",
-      "disk_size": 8192,
+      "disk_size": "8192",
       "http_directory": "http",
       "ssh_username": "root",
       "ssh_password": "packer",
       "ssh_wait_timeout": "1000s",
       "shutdown_command": "shutdown -p now",
-      "headless": true
+      "headless": "true"
   },
   "builders": [
     {
