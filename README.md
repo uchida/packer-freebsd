@@ -1,5 +1,7 @@
 # packer-freebsd
 
+[![Build Status](https://img.shields.io/travis/uchida/packer-freebsd.svg)](https://travis-ci.org/uchida/packer-freebsd)
+
 packer template to build FreeBSD (with zfsroot) images
 
 ## Building Images
