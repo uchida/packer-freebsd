@@ -1,0 +1,10 @@
+language: shell
+
+before_script:
+  - curl -sLo packer.zip "https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip"
+  - unzip -d bin packer.zip
+
+script:
+  - export PATH=$(pwd)/bin:$PATH
+  - packer validate template.json
+
