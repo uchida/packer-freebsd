@@ -1,6 +1,7 @@
 # packer-freebsd
 
 [![Build Status](https://img.shields.io/travis/uchida/packer-freebsd.svg)](https://travis-ci.org/uchida/packer-freebsd)
+[![License](https://img.shields.io/github/license/uchida/packer-freebsd.svg)](http://creativecommons.org/publicdomain/zero/1.0/deed)
 
 packer template to build FreeBSD (with zfsroot) images
 
@@ -26,4 +27,6 @@ $ packer build -only=qemu template.json
 
 [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png "CC0")]
 (http://creativecommons.org/publicdomain/zero/1.0/deed)
+
+dedicated to public domain by [contributors](https://github.com/uchida/packer-freebsd/graphs/contributors).
 
