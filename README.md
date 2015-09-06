@@ -23,3 +23,9 @@ $ packer build -only=qemu template.json
 When building qemu images, note that the driver names,
 controlled by `qemuargs`, are consistent with one in
 `boot_command` or http/installerconfig.
+
+## License
+
+[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png "CC0")]
+(http://creativecommons.org/publicdomain/zero/1.0/deed)
+
