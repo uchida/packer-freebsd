@@ -1,0 +1,27 @@
+machine:
+  environment:
+    PATH: "${HOME}/bin:${PATH}"
+    PACKER_URL: "https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip"
+    PACKER_SHA256SUM: "2f1ca794e51de831ace30792ab0886aca516bf6b407f6027e816ba7ca79703b5"
+
+dependencies:
+  cache_directories:
+    - "~/bin"
+  pre:
+    - |
+      if [ ! -e "${HOME}/bin/packer" ]; then
+        curl -Lo packer.zip "${PACKER_URL}"
+        unzip -d ~/bin packer.zip
+      fi
+    - packer version
+
+test:
+  override:
+    - packer validate template.json
+
+deployment:
+  release:
+    tag: /[0-9]+\.[0-9]+\.[0-9]+/
+    commands:
+      - export VERSION="$(git tag)"
+      - packer push template.json
