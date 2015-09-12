@@ -23,5 +23,5 @@ deployment:
   release:
     tag: /[0-9]+\.[0-9]+\.[0-9]+/
     commands:
-      - export VERSION="$(git tag)"
+      - sed -i "s/0.0.0/$(git describe --abbrev=0 --tags)/" template.json
       - packer push template.json
