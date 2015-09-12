@@ -9,7 +9,7 @@ packer template to build FreeBSD (with zfsroot) images
 
 To build images, simply run:
 
-```
+```console
 $ git clone https://github.com/uchida/packer-freebsd
 $ cd packer-freebsd
 $ packer build template.json
@@ -17,7 +17,7 @@ $ packer build template.json
 
 If you want to build only virtualbox, vmware or qemu.
 
-```
+```console
 $ packer build -only=virtualbox-iso template.json
 $ packer build -only=vmware-iso template.json
 $ packer build -only=qemu template.json
