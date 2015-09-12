@@ -112,6 +112,7 @@
     [
       {
         "type": "vagrant",
+        "vagrantfile_template": "vagrantfile.template",
         "keep_input_artifact": false
       },
       {
