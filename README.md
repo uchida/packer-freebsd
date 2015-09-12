@@ -34,16 +34,18 @@ $ packer build -only=qemu template.json
 vagrant images at [Atlas](https://atlas.hashicorp.com) are released by [Circle CI](https://circleci.com/).
 setup instructions are the following:
 
-# sign up
+1. sign up
   - [Atlas](https://atlas.hashicorp.com/account/new)
   - [Circle CI](https://circleci.com/signup).
-# get API token
+2. get API token
   - [Atlas](https://atlas.hashicorp.com/settings/tokens)
   - [Circle CI](https://circleci.com/account/api)
-# create build configuration at [Atlas](https://atlas.hashicorp.com/tutorial/packer-vagrant),
+3. create build configuration at [Atlas](https://atlas.hashicorp.com/tutorial/packer-vagrant),
   this sets `ATLAS_USERNAME` and `ATLAS_NAME` environment variables
-# create project at [Circle CI](https://circleci.com/add-projects)
-# add atlas environment variables Circle CI project
+4. create project at [Circle CI](https://circleci.com/add-projects)
+5. add atlas environment variables Circle CI project
+6. edit circle.yml
+
 ```console
 $ ATLAS_USERNAME={{ your atlas username here }}
 $ ATLAS_NAME={{ your atlas box name here }}
@@ -55,7 +57,6 @@ $ for name in ATLAS_USERNAME ATLAS_NAME ATLAS_TOKEN; do
     curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d "{\"name\":\"$name\",\"value\":\"$(eval echo \$$name)\"}" "https://circleci.com/api/v1/project/$CIRCLE_USERNAME/$CIRCLE_PROJECT/envvar?circle-token=$CIRCLE_TOKEN"
   done
 ```
-# edit circle.yml
 
 ## License
 
