@@ -13,8 +13,3 @@ fetch -am -o authorized_keys 'https://raw.github.com/mitchellh/vagrant/master/ke
 chmod 0600 authorized_keys
 chown -R vagrant:wheel ~vagrant
 
-pw lock root
-
-sysrc 'rpcbind_enable="YES"'
-sysrc 'nfs_server_enable="YES"'
-sysrc 'mountd_flags="-r"'
