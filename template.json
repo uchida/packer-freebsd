@@ -16,7 +16,7 @@
       "http_directory": "http",
       "ssh_username": "root",
       "ssh_password": "packer",
-      "ssh_wait_timeout": "3600s",
+      "ssh_wait_timeout": "1000s",
       "shutdown_command": "shutdown -p now",
       "headless": "true"
   },
