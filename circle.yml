@@ -17,6 +17,8 @@ dependencies:
 
 test:
   override:
+    - sh -n http/installerconfig
+    - find scripts -name '*.sh' -print0 | xargs -0 sh -n
     - packer validate template.json
 
 deployment:
