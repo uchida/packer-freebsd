@@ -1,6 +1,6 @@
 machine:
   environment:
-    PATH: "${HOME}/bin:/opt/vagrant/bin:${PATH}"
+    PATH: "${HOME}/bin:${HOME}/vagrant/bin:${PATH}"
     PACKER_URL: "https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip"
     PACKER_SHA256SUM: "2f1ca794e51de831ace30792ab0886aca516bf6b407f6027e816ba7ca79703b5"
     VAGRANT_URL: "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb"
@@ -8,15 +8,16 @@ machine:
 
 dependencies:
   cache_directories:
-    - "/opt/vagrant"
+    - "~/vagrant"
     - "~/bin"
   override:
     - |
-      if [ ! -d "/opt/vagrant" ]; then
+      if [ ! -d "${HOME}/vagrant" ]; then
         curl -Lo vagrant.deb "${VAGRANT_URL}"
         sha256sum vagrant.deb
         echo "${VAGRANT_SHA256SUM}  vagrant.deb" | sha256sum -c || exit 1
         sudo dpkg -i vagrant.deb
+        cp -aR /opt/vagrant "${HOME}/vagrant"
       fi
     - vagrant version
     - cp vagrantfile.template Vagrantfile
