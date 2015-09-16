@@ -11,6 +11,7 @@ dependencies:
     - |
       if [ ! -e "${HOME}/bin/packer" ]; then
         curl -Lo packer.zip "${PACKER_URL}"
+        echo "${PACKER_SHA256SUM}  packer.zip" | sha256sum -c
         unzip -d ~/bin packer.zip
       fi
     - packer version
