@@ -9,8 +9,6 @@
       "iso_url": "http://ftp.riken.jp/pub/FreeBSD/releases/ISO-IMAGES/10.2/FreeBSD-10.2-RELEASE-amd64-disc1.iso",
       "iso_checksum": "97908f5cd00d86cafeb2c265bfabbd0aa79f87e9b6b31ecdb756bc96a4a62e93",
       "iso_checksum_type": "sha256",
-      "boot_prefetch": "<esc><wait>boot -s<enter><wait><wait10><wait5>/bin/sh<enter><wait>mdmfs -s 100m md1 /tmp<enter><wait>mdmfs -s 100m md2 /mnt<enter><wait>dhclient -p /tmp/dhclient.pid -l /tmp/dhclient.lease em0<enter><wait5>",
-      "boot_postfetch": "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>",
       "boot_wait": "10s",
       "disk_size": "8192",
       "http_directory": "http",
@@ -30,9 +28,15 @@
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "boot_command": [
-        "{{user `boot_prefetch`}}",
+        "<esc><wait>",
+        "boot -s<enter><wait>",
+        "<wait10><wait5>",
+        "/bin/sh<enter><wait>",
+        "mdmfs -s 100m md1 /tmp<enter><wait>",
+        "mdmfs -s 100m md2 /mnt<enter><wait>",
+        "dhclient -p /tmp/dhclient.pid -l /tmp/dhclient.lease em0<enter><wait5>",
         "fetch -o /tmp/installerconfig http://{{ .HTTPIP }}:{{ .HTTPPort }}/installerconfig<enter><wait>",
-        "{{user `boot_postfetch`}}"
+        "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
@@ -52,9 +56,15 @@
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "boot_command": [
-        "{{user `boot_prefetch`}}",
+        "<esc><wait>",
+        "boot -s<enter><wait>",
+        "<wait10><wait5>",
+        "/bin/sh<enter><wait>",
+        "mdmfs -s 100m md1 /tmp<enter><wait>",
+        "mdmfs -s 100m md2 /mnt<enter><wait>",
+        "dhclient -p /tmp/dhclient.pid -l /tmp/dhclient.lease em0<enter><wait5>",
         "fetch -o /tmp/installerconfig http://{{ .HTTPIP }}:{{ .HTTPPort }}/installerconfig<enter><wait>",
-        "{{user `boot_postfetch`}}"
+        "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
@@ -73,9 +83,15 @@
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "boot_command": [
-        "{{user `boot_prefetch`}}",
+        "<esc><wait>",
+        "boot -s<enter><wait>",
+        "<wait10><wait5>",
+        "/bin/sh<enter><wait>",
+        "mdmfs -s 100m md1 /tmp<enter><wait>",
+        "mdmfs -s 100m md2 /mnt<enter><wait>",
+        "dhclient -p /tmp/dhclient.pid -l /tmp/dhclient.lease vtnet0<enter><wait5>",
         "fetch -o /tmp/installerconfig http://{{ .HTTPIP }}:{{ .HTTPPort }}/installerconfig<enter><wait>",
-        "{{user `boot_postfetch`}}"
+        "bsdinstall script /tmp/installerconfig; shutdown -r now<enter>"
       ],
       "boot_wait": "{{user `boot_wait`}}",
       "disk_size": "{{user `disk_size`}}",
