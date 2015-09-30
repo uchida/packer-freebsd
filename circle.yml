@@ -40,5 +40,5 @@ deployment:
   release:
     tag: /[0-9]+\.[0-9]+\.[0-9]+/
     commands:
-      - sed -i "s/0.0.0/$(git describe --abbrev=0 --tags)/" template.json
+      - sed -i.orig "s/0.0.0/$(git describe --abbrev=0 --tags)/" template.json && diff -u template.json{.orig,}
       - packer push template.json
