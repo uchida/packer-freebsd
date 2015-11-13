@@ -52,10 +52,9 @@ setup instructions are the following:
   $ CIRCLE_PROJECT={{ your circle ci project here }}
   $ CIRCLE_TOKEN={{ your circle ci token here }}
   $ CIRCLE_ENVVARENDPOINT="https://circleci.com/api/v1/project/$CIRCLE_USERNAME/$CIRCLE_PROJECT/envvar?circle-token=$CIRCLE_TOKEN"
-  $ CIRCLE_POST_OPTS='-X POST -H "Content-Type: application/json" -H "Accept: application/json"'
   $ for name in ATLAS_USERNAME ATLAS_NAME ATLAS_TOKEN; do
-      value=$(eval echo \$$name)
-      curl $CIRCLE_POST_OPTS -d "{\"name\":\"$name\",\"value\":\"$value\"}" "$CIRCLE_ENVVARENDPOINT"
+      json="{\"name\":\"$name\",\"value\":\"$(eval echo \$$name)\"}"
+      curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d "$json" "$CIRCLE_ENVVARENDPOINT"
     done
 
   ```
