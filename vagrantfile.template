@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "poudriere"
+  config.vm.box = "uchida/freebsd"
   config.vm.provider "virtualbox" do |vb|
     #vb.cpus = 1
     #vb.memory = 2048
