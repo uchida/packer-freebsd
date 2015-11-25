@@ -40,23 +40,18 @@ setup instructions are the following:
 2. Get API token
   - [Atlas](https://atlas.hashicorp.com/settings/tokens)
   - [Circle CI](https://circleci.com/account/api)
-3. Create build configuration at [Atlas](https://atlas.hashicorp.com/tutorial/packer-vagrant),
-  this sets `ATLAS_USERNAME` and `ATLAS_NAME` environment variables to build configuration
+3. Create new build configuration at [Atlas](https://atlas.hashicorp.com/builds/new)
+  and [generate token](https://atlas.hashicorp.com/settings/tokens).
 4. Create project at [Circle CI](https://circleci.com/add-projects)
 5. Add Atlas environment variables to Circle CI project:
   ```console
-  $ ATLAS_USERNAME={{ your atlas username here }}
-  $ ATLAS_NAME={{ your atlas box name here }}
   $ ATLAS_TOKEN={{ your atlas api token here }}
   $ CIRCLE_USERNAME={{ your circle ci username here }}
   $ CIRCLE_PROJECT={{ your circle ci project here }}
   $ CIRCLE_TOKEN={{ your circle ci token here }}
   $ CIRCLE_ENVVARENDPOINT="https://circleci.com/api/v1/project/$CIRCLE_USERNAME/$CIRCLE_PROJECT/envvar?circle-token=$CIRCLE_TOKEN"
-  $ for name in ATLAS_USERNAME ATLAS_NAME ATLAS_TOKEN; do
-      json="{\"name\":\"$name\",\"value\":\"$(eval echo \$$name)\"}"
-      curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d "$json" "$CIRCLE_ENVVARENDPOINT"
-    done
-
+  $ json="{\"name\":\"ATLAS_TOKEN\",\"value\":\"$ATLAS_TOKEN\"}"
+  $ curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d "$json" "$CIRCLE_ENVVARENDPOINT"
   ```
 6. Edit circle.yml
 

@@ -1,9 +1,7 @@
 {
   "variables": {
-    "vm_name": "freebsd",
-
-    "atlas_username": "{{env `ATLAS_USERNAME`}}",
-    "atlas_name": "{{env `ATLAS_NAME`}}",
+    "atlas_username": "uchida",
+    "atlas_name": "freebsd",
     "version": "0.0.0",
 
     "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/ISO-IMAGES/10.2/FreeBSD-10.2-RELEASE-amd64-disc1.iso",
@@ -23,7 +21,7 @@
       "type": "virtualbox-iso",
       "guest_os_type": "FreeBSD_64",
 
-      "vm_name": "{{user `vm_name`}}",
+      "vm_name": "{{user `atlas_name`}}",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
@@ -46,7 +44,7 @@
       "type": "vmware-iso",
       "guest_os_type": "freebsd-64",
 
-      "vm_name": "{{user `vm_name`}}",
+      "vm_name": "{{user `atlas_name`}}",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
@@ -68,7 +66,7 @@
     {
       "type": "qemu",
 
-      "vm_name": "{{user `vm_name`}}",
+      "vm_name": "{{user `atlas_name`}}",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
