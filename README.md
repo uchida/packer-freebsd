@@ -45,6 +45,7 @@ setup instructions are the following:
   and [generate token](https://atlas.hashicorp.com/settings/tokens).
 4. Create project at [Circle CI](https://circleci.com/add-projects)
 5. Add Atlas environment variables to Circle CI project:
+  
   ```console
   $ ATLAS_TOKEN={{ your atlas api token here }}
   $ CIRCLE_USERNAME={{ your circle ci username here }}
@@ -54,6 +55,7 @@ setup instructions are the following:
   $ json="{\"name\":\"ATLAS_TOKEN\",\"value\":\"$ATLAS_TOKEN\"}"
   $ curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d "$json" "$CIRCLE_ENVVARENDPOINT"
   ```
+  
 6. Edit circle.yml
 
 ## License
