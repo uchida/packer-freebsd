@@ -15,7 +15,7 @@ dependencies:
       if [ ! -d "${HOME}/vagrant" ]; then
         curl -Lo vagrant.deb "${VAGRANT_URL}"
         sha256sum vagrant.deb
-        echo "${VAGRANT_SHA256SUM}  vagrant.deb" | sha256sum -c || exit 1
+        echo "${VAGRANT_SHA256SUM}  vagrant.deb" | sha256sum -c || exit $?
         sudo dpkg -i vagrant.deb
         cp -aR /opt/vagrant "${HOME}/vagrant"
       fi
@@ -24,7 +24,7 @@ dependencies:
     - |
       if [ ! -e "${HOME}/bin/packer" ]; then
         curl -Lo packer.zip "${PACKER_URL}"
-        echo "${PACKER_SHA256SUM}  packer.zip" | sha256sum -c || exit 1
+        echo "${PACKER_SHA256SUM}  packer.zip" | sha256sum -c || exit $?
         unzip -d ~/bin packer.zip
       fi
     - packer version
