@@ -42,5 +42,5 @@ deployment:
     commands:
       - cp template.json template.json.orig
       - jq ".variables.version = \"${CIRCLE_TAG}\"" template.json.orig > template.json
-      - diff -u template.json{.orig,} || :
+      - "diff -u template.json{.orig,} || :"
       - packer push template.json
