@@ -13,7 +13,7 @@ dependencies:
   override:
     - sudo apt-get update; sudo apt-get install jq
     - |
-      if [ ! -d "${HOME}/vagrant" ]; then
+      if [ ! -d "/opt/vagrant" ]; then
         curl -Lo vagrant.deb "${VAGRANT_URL}"
         sha256sum vagrant.deb
         echo "${VAGRANT_SHA256SUM}  vagrant.deb" | sha256sum -c || exit $?
