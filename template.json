@@ -99,7 +99,10 @@
       "type": "shell",
       "script": "scripts/vmguest.sh",
       "execute_command": "chmod +x {{ .Path }}; /bin/sh -c '{{ .Vars }} {{ .Path }}'",
-      "only": ["virtualbox-iso", "vmware-iso"]
+      "only": [
+        "virtualbox-iso",
+        "vmware-iso"
+      ]
     },
     {
       "type": "shell",
@@ -116,7 +119,9 @@
       },
       {
         "type": "atlas",
-        "only": ["vmware-iso"],
+        "only": [
+          "vmware-iso"
+        ],
         "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
         "artifact_type": "vagrant.box",
         "metadata": {
@@ -126,7 +131,9 @@
       },
       {
         "type": "atlas",
-        "only": ["qemu"],
+        "only": [
+          "qemu"
+        ],
         "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
         "artifact_type": "vagrant.box",
         "metadata": {
@@ -136,7 +143,9 @@
       },
       {
         "type": "atlas",
-        "only": ["virtualbox-iso"],
+        "only": [
+          "virtualbox-iso"
+        ],
         "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
         "artifact_type": "vagrant.box",
         "metadata": {
