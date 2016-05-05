@@ -10,8 +10,9 @@ dependencies:
   cache_directories:
     - "/opt/vagrant"
     - "~/bin"
-  override:
+  pre:
     - sudo apt-get update; sudo apt-get install jq
+  override:
     - |
       if [ ! -d "/opt/vagrant" ]; then
         curl -Lo vagrant.deb "${VAGRANT_URL}"
@@ -20,7 +21,6 @@ dependencies:
         sudo dpkg -i vagrant.deb
       fi
     - vagrant version
-    - cp vagrantfile.template Vagrantfile
     - |
       if [ ! -e "${HOME}/bin/packer" ]; then
         curl -Lo packer.zip "${PACKER_URL}"
@@ -33,6 +33,7 @@ test:
   override:
     - sh -n http/installerconfig
     - find scripts -name '*.sh' -print0 | xargs -0 sh -n
+    - cp vagrantfile.template Vagrantfile
     - vagrant version
     - packer validate template.json
 
