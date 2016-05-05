@@ -12,6 +12,3 @@ cd ~vagrant/.ssh
 fetch -am -o authorized_keys 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
 chmod 0600 authorized_keys
 chown -R vagrant:wheel ~vagrant
-
-pkg install -y rsync
-
