@@ -2,11 +2,10 @@ DISTRIBUTIONS="kernel.txz base.txz lib32.txz"
 
 for d in ada0 da0 vtbd0; do
   if [ -e "/dev/$d" ]; then
-    export ZFSBOOT_DISKS=$d
+    export PARTITIONS=$d
     break
   fi
 done
-unset d
 export nonInteractive=YES
 
 #!/bin/sh

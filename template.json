@@ -1,7 +1,7 @@
 {
   "variables": {
     "atlas_username": "uchida",
-    "atlas_name": "freebsd",
+    "atlas_name": "freebsd-ufs",
     "version": "0.0.0",
 
     "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-disc1.iso",
