@@ -1,6 +1,6 @@
 machine:
   environment:
-    PATH: "${HOME}/bin:${HOME}/vagrant/bin:${PATH}"
+    PATH: "${HOME}/bin:/opt/vagrant/bin:${PATH}"
     PACKER_URL: "https://releases.hashicorp.com/packer/0.10.0/packer_0.10.0_linux_amd64.zip"
     PACKER_SHA256SUM: "eadd33bc0f8fa42034059fc1cda5f43ed6f540746e767480f0706ebed49b45e5"
     VAGRANT_URL: "https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb"
@@ -8,16 +8,16 @@ machine:
 
 dependencies:
   cache_directories:
-    - "~/vagrant"
+    - "/opt/vagrant"
     - "~/bin"
   override:
+    - sudo apt-get update; sudo apt-get install jq
     - |
       if [ ! -d "${HOME}/vagrant" ]; then
         curl -Lo vagrant.deb "${VAGRANT_URL}"
         sha256sum vagrant.deb
         echo "${VAGRANT_SHA256SUM}  vagrant.deb" | sha256sum -c || exit $?
         sudo dpkg -i vagrant.deb
-        cp -aR /opt/vagrant "${HOME}/vagrant"
       fi
     - vagrant version
     - cp vagrantfile.template Vagrantfile
@@ -40,7 +40,7 @@ deployment:
   release:
     tag: /[0-9]+\.[0-9]+\.[0-9]+/
     commands:
-      - |
-        sed -i.orig "s/0.0.0/${CIRCLE_TAG}/" template.json
-        diff -u template.json{.orig,} || :
+      - cp template.json template.json.orig
+      - jq ".variables.version = \"${CIRCLE_TAG}\"" template.json.orig > template.json
+      - diff -u template.json{.orig,} || :
       - packer push template.json
