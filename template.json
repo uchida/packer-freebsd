@@ -8,7 +8,7 @@
     "iso_checksum": "fef068cf6dea26923ab84b62ba9f21461ca0bdec90a0741c8ffb0e1ca29e410d",
     "iso_checksum_type": "sha256",
     "boot_wait": "60s",
-    "disk_size": "8192",
+    "disk_size": "16384",
     "http_directory": "http",
     "ssh_username": "root",
     "ssh_password": "packer",
