@@ -4,8 +4,8 @@
     "atlas_name": "freebsd",
     "version": "0.0.0",
 
-    "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-disc1.iso",
-    "iso_checksum": "fef068cf6dea26923ab84b62ba9f21461ca0bdec90a0741c8ffb0e1ca29e410d",
+    "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/11.0/FreeBSD-11.0-RELEASE-amd64-disc1.iso",
+    "iso_checksum": "f954780bfad208b1c06a61b2bede54bff4bae61e4436c977f6f595ecf006108e",
     "iso_checksum_type": "sha256",
     "boot_wait": "60s",
     "disk_size": "16384",
