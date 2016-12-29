@@ -5,7 +5,7 @@
     "version": "0.0.0",
 
     "iso_url": "http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/11.0/FreeBSD-11.0-RELEASE-amd64-disc1.iso",
-    "iso_checksum": "f954780bfad208b1c06a61b2bede54bff4bae61e4436c977f6f595ecf006108e",
+    "iso_checksum": "08b12f2dc378f7a61b5469219824c74a2f9faef580acc85ffab45365df79872d",
     "iso_checksum_type": "sha256",
     "boot_wait": "60s",
     "disk_size": "16384",
